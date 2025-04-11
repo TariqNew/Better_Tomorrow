@@ -2095,3 +2095,71 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+
+.partner-card {
+  background-color: var(--surface-color);
+  color: var(--default-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.team-img img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.team-content {
+  padding: 20px;
+}
+
+.team-content h4 {
+  font-family: var(--heading-font);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 12px;
+}
+
+.team-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: var(--default-color);
+}
+
+.team-content p strong {
+  color: var(--accent-color);
+}
+
+
+@media (max-width: 576px) {
+  .team-content {
+    padding: 15px;
+  }
+
+  .team-content h4 {
+    font-size: 1.05rem;
+  }
+
+  .team-content p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
