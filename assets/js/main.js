@@ -211,3 +211,39 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+// Contact form
+
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const status = urlParams.get("status");
+  const msg = urlParams.get("msg");
+
+  const loading = document.querySelector(".loading");
+  const errorMessage = document.querySelector(".error-message");
+  const sentMessage = document.querySelector(".sent-message");
+
+  loading.style.display = "none";
+
+  if (status === "success") {
+    sentMessage.style.display = "block";
+  } else if (status === "error") {
+    let displayMsg = "An unexpected error occurred.";
+
+    if (msg === "invalid_email") {
+      displayMsg = "Please enter a valid email address.";
+    } else if (msg === "invalid_request") {
+      displayMsg = "Invalid request method.";
+    } else if (msg) {
+      displayMsg = decodeURIComponent(msg.replace(/\+/g, ' '));
+    }
+
+    errorMessage.innerHTML = displayMsg;
+    errorMessage.style.display = "block";
+  }
+
+  // Optional: Clear query string after showing the message
+  if (status) {
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+});
